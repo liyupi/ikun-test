@@ -7,3 +7,8 @@
 在线使用：https://ikuntest.com
 
 ![小黑子开庭别哭](./doc/kaitingbieku.png)
+
+## ikun 们的感人发言
+
+![](./doc/ikun1.png)
+
