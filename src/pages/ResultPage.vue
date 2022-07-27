@@ -2,13 +2,14 @@
   <div class="result-page">
     <div class="card" v-if="userScore">
       <div class="margin-bottom-8">
-        得分：{{ userScore.score }}，排名：{{ userScore.rank }}
+        得分：{{ userScore.score }}，排名：{{ userScore.rank }}，超过了
+        {{ userScore.surpass }}% 的人
       </div>
       <div class="margin-bottom-8">鉴定你是：</div>
       <h1 class="text-align-center margin-top-0">
         {{ userScore?.result.name }}
       </h1>
-      <img class="result-img" :src="userScore?.result.img" @click="jiMing"/>
+      <img class="result-img" :src="userScore?.result.img" @click="jiMing" />
       <van-button
         class="margin-bottom-8"
         block
@@ -64,7 +65,7 @@ const router = useRouter();
  */
 const jiMing = () => {
   audioRef.value.play();
-}
+};
 
 /**
  * 重新测试

@@ -53,6 +53,11 @@ async function getUserScore(id) {
         },
       },
     })) + 1;
+  const totalScoreNum = await UserScoreModel.count();
+  userScore.surpass = (
+    ((totalScoreNum - userScore.rank) * 100) /
+    (totalScoreNum - 1)
+  ).toFixed(2);
   userScore.result = getResult(userScore.score);
   return userScore;
 }
