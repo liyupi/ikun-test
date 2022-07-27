@@ -369,17 +369,17 @@ const questions = [
       {
         key: "B",
         name: "基阙实钛镁",
-        score: 3,
+        score: 2,
       },
       {
         key: "C",
-        name: "二氯化钾",
-        score: 0,
+        name: "基态镁",
+        score: 5,
       },
       {
         key: "D",
         name: "基妮钛镁",
-        score: 5,
+        score: 3,
       },
     ],
   },

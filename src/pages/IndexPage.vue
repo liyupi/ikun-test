@@ -38,6 +38,7 @@
         :onSubmit="doSubmit"
       />
     </template>
+    <audio ref="audioRef" src="https://636f-codenav-8grj8px727565176-1256524210.tcb.qcloud.la/ikun-audio/niganma.aac" />
   </div>
 </template>
 
@@ -54,6 +55,8 @@ const currentQuestions: Ref<QuestionType[]> = ref([]);
 const username = ref("");
 // 是否开始
 const start = ref(false);
+// 控制音频
+const audioRef = ref();
 
 onMounted(async () => {
   const res: any = await myAxios.post("/question/list");
@@ -71,6 +74,7 @@ const router = useRouter();
  */
 const doStart = () => {
   start.value = true;
+  audioRef.value.play();
 };
 
 /**

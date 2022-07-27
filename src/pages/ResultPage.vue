@@ -6,9 +6,9 @@
       </div>
       <div class="margin-bottom-8">鉴定你是：</div>
       <h1 class="text-align-center margin-top-0">
-        {{ userScore.result.name }}
+        {{ userScore?.result.name }}
       </h1>
-      <img class="result-img" :src="userScore.result.img" />
+      <img class="result-img" :src="userScore?.result.img" @click="jiMing"/>
       <van-button
         class="margin-bottom-8"
         block
@@ -18,12 +18,13 @@
       </van-button>
       <van-button block type="warning" @click="doRestart">重新测试</van-button>
     </div>
+    <audio ref="audioRef" :src="userScore?.result.music" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-import { onMounted, ref, toRefs, watch } from "vue";
+import { onMounted, ref, toRefs } from "vue";
 import myAxios from "../plugins/myAxios";
 import { Toast } from "vant";
 
@@ -39,6 +40,8 @@ const props = withDefaults(defineProps<ResultPageProps>(), {
 const { id } = toRefs(props);
 // 用户分数信息
 const userScore = ref();
+// 控制音频
+const audioRef = ref();
 
 onMounted(async () => {
   if (id.value <= 0) {
@@ -55,6 +58,13 @@ onMounted(async () => {
 });
 
 const router = useRouter();
+
+/**
+ * 鸡鸣
+ */
+const jiMing = () => {
+  audioRef.value.play();
+}
 
 /**
  * 重新测试
