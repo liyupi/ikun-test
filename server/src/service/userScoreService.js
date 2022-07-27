@@ -20,11 +20,14 @@ async function addUserScore(questionIds, answers, username) {
   let score = getScore(questionsData, answers);
   // 特殊分数加成
   const jiWords = ["🐔", "鸡", "坤", "kun", "下蛋", "篮球", "🏀"];
-  jiWords.forEach((word) => {
+  for (let i = 0; i < jiWords.length; i++) {
+    const word = jiWords[i];
+    // 只能加 1 次
     if (username.includes(word)) {
       score += 5;
+      break;
     }
-  });
+  }
   return await UserScoreModel.create({
     username,
     score,
