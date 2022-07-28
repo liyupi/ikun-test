@@ -20,6 +20,7 @@ async function addUserScoreApi(event, req, res) {
     !questionIds ||
     questionIds.length < 1 ||
     answers.length !== questionIds.length ||
+    questionIds.length !== 10 ||
     username.length > 32
   ) {
     throw new MyError(REQUEST_PARAMS_ERROR_CODE);
